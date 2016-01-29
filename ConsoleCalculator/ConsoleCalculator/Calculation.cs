@@ -38,6 +38,11 @@ namespace ConsoleCalculator
             return Answer;
         }
 
-
+        public static int Modulus(int firstName, int secondName)
+        {
+            Answer = firstName % secondName;
+            Stack.LastAnswer = Answer;
+            return Answer;
+        }
     }
 }
