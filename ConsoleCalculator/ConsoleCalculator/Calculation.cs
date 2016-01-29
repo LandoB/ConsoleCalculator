@@ -30,5 +30,14 @@ namespace ConsoleCalculator
             Stack.LastAnswer = Answer;
             return Answer;
         }
+
+        public static int Division(int firstNumber, int secondNumber)
+        {
+            Answer = firstNumber / secondNumber;
+            Stack.LastAnswer = Answer;
+            return Answer;
+        }
+
+
     }
 }
