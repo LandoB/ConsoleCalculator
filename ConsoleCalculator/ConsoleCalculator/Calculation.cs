@@ -17,6 +17,11 @@ namespace ConsoleCalculator
             return Answer;
         }
 
-
+        public static int Substraction(int firstNumber, int secondNumber)
+        {
+            Answer = firstNumber - secondNumber;
+            Stack.LastAnswer = Answer;
+            return Answer;
+        }
     }
 }
