@@ -19,5 +19,23 @@ namespace ConsoleCalculatorTest
         {
             Assert.AreEqual(Calculation.Substraction(3, 2), 1);
         }
+
+        [TestMethod]
+        public void TestEnsureICanMultiplyTwoNumbers()
+        {
+            Assert.AreEqual(Calculation.Multiplication(3, 2), 6);
+        }
+
+        [TestMethod]
+        public void TestEnsureICanDivideTwoNumbers()
+        {
+            Assert.AreEqual(Calculation.Division(3, 2), 1);
+        }
+
+        [TestMethod]
+        public void TestEnsureICanModuloTwoNumbers()
+        {
+            Assert.AreEqual(Calculation.Modulus(3, 2), 1);
+        }
     }
 }
