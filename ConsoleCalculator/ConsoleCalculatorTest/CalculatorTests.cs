@@ -1,14 +1,17 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ConsoleCalculator;
 
 namespace ConsoleCalculatorTest
 {
     [TestClass]
     public class CalculatorTests
     {
+        // Calculation Tests:
         [TestMethod]
-        public void TestMethod1()
+        public void TestEnsureICanAddTwoNumbers()
         {
+            Assert.AreEqual(Calculation.Addition(3, 2), 5);
         }
     }
 }
