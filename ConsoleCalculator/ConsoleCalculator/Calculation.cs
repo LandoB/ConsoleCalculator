@@ -23,5 +23,12 @@ namespace ConsoleCalculator
             Stack.LastAnswer = Answer;
             return Answer;
         }
+
+        public static int Multiplication(int firstNumber, int secondNumber)
+        {
+            Answer = firstNumber * secondNumber;
+            Stack.LastAnswer = Answer;
+            return Answer;
+        }
     }
 }
