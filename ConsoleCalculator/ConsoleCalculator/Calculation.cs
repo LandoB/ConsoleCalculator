@@ -8,5 +8,15 @@ namespace ConsoleCalculator
 {
     class Calculation
     {
+        public static int Answer;
+
+        public static int Addition(int firstNumber, int secondNumber)
+        {
+            Answer = firstNumber + secondNumber;
+            Stack.LastAnswer = Answer;
+            return Answer;
+        }
+
+
     }
 }
