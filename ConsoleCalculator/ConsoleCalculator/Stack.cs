@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleCalculator
 {
-    class Stack
+    public class Stack
     {
         private static int lastanswer;
 

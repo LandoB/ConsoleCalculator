@@ -37,5 +37,26 @@ namespace ConsoleCalculatorTest
         {
             Assert.AreEqual(Calculation.Modulus(3, 2), 1);
         }
+
+        // Parse tests:
+        [TestMethod] 
+         public void CanParseTermsFromGOOD2TermExpression()
+         { 
+             BasicTasks doSomething = new BasicTasks(); 
+             doSomething.DelineateTerms("8+2"); 
+             Assert.AreEqual(doSomething.firstNumb, 8); 
+             Assert.AreEqual(doSomething.secNumb, 2); 
+             Assert.AreEqual(doSomething.OurDelimeter, '+'); 
+         } 
+ 
+ 
+         [TestMethod] 
+         [ExpectedException(typeof(ArgumentException))] 
+         public void ThrowsErrorForIncorrectExpression()
+         { 
+             BasicTasks doSomething = new BasicTasks(); 
+             doSomething.DelineateTerms("8+"); 
+         } 
+
     }
 }
