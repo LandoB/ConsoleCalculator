@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleCalculator
 {
-    class Evaluate
+    public class Evaluate
     {
         public BasicTasks calculate { get; set; }
 

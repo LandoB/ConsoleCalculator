@@ -8,12 +8,13 @@ namespace ConsoleCalculatorTest
     public class CalculatorTests
     {
         private Stack addToStack;
+        private Evaluate myEvaluations;
 
         [TestInitialize]
         public void Initialize()
         {
             addToStack = new Stack();
-
+            myEvaluations = new Evaluate();
         }
 
         // Calculation Tests:
@@ -93,5 +94,27 @@ namespace ConsoleCalculatorTest
             addToStack.RetrievingConstant("y");
         }
 
+        // Evaluation tests:
+        [TestMethod]
+        public void TestEnsureICanGetCorrectAnswersFromInput()
+        {
+            Assert.AreEqual(myEvaluations.EvaluateThis("3+2"), 5);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestEnsureItWillThrowErrorForIncorrectEvaluationExpression()
+        {
+            myEvaluations.EvaluateThis("3+");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestEnsureItWillThrowErrorForDifferentIncorrectEvaluationExpression()
+        {
+            myEvaluations.EvaluateThis("/3");
+        }
+
+
+        }
     }
-}
