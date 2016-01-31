@@ -7,6 +7,15 @@ namespace ConsoleCalculatorTest
     [TestClass]
     public class CalculatorTests
     {
+        private Stack addToStack;
+
+        [TestInitialize]
+        public void Initialize()
+        {
+            addToStack = new Stack();
+
+        }
+
         // Calculation Tests:
         [TestMethod]
         public void TestEnsureICanAddTwoNumbers()
@@ -40,23 +49,49 @@ namespace ConsoleCalculatorTest
 
         // Parse tests:
         [TestMethod] 
-         public void CanParseTermsFromGOOD2TermExpression()
+         public void TestEnsureICanParseTermsFromExpression()
          { 
              BasicTasks doSomething = new BasicTasks(); 
-             doSomething.DelineateTerms("8+2"); 
-             Assert.AreEqual(doSomething.firstNumb, 8); 
-             Assert.AreEqual(doSomething.secNumb, 2); 
-             Assert.AreEqual(doSomething.OurDelimeter, '+'); 
+             doSomething.IdentifyOperator("3+2"); 
+             Assert.AreEqual(doSomething.firstNumber, 3); 
+             Assert.AreEqual(doSomething.secondNumber, 2); 
+             Assert.AreEqual(doSomething.myDelimeter, '+'); 
          } 
  
  
          [TestMethod] 
          [ExpectedException(typeof(ArgumentException))] 
-         public void ThrowsErrorForIncorrectExpression()
+         public void TestEnsureItWillThrowErrorForIncorrectExpression()
          { 
              BasicTasks doSomething = new BasicTasks(); 
-             doSomething.DelineateTerms("8+"); 
-         } 
+             doSomething.IdentifyOperator("3+"); 
+         }
+
+        // Dictionary tests:
+        [TestMethod]
+        public void TestEnsureICanSuccessfullyAddConstantsToDictionary()
+        {
+            addToStack.SetTheConstant("x", 3);
+            Assert.IsTrue(addToStack.ConstantHolder.ContainsKey("x"));
+            Assert.IsTrue(addToStack.ConstantHolder.ContainsValue("3"));
+        }
+
+        [TestMethod]
+        public void TestEnsureICanSuccessfullyRetrieveConstantsFromDictionary()
+        {
+            addToStack.SetTheConstant("y", 2);
+            string firstNumber = "y";
+            string expected = "2";
+            string actual = addToStack.RetrievingConstant(firstNumber);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestEnsureItWillThrowErrorForNotFoundValue()
+        {
+            addToStack.RetrievingConstant("y");
+        }
 
     }
 }
